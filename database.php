@@ -27,13 +27,38 @@ class Database{
 		}
 	}
  
+	public function read($id=null){
+		$sql = "SELECT * FROM `task`";
+		if($id){ $sql .= " WHERE id=$id";}
+ 		$res = mysqli_query($this->connection, $sql);
+ 		return $res;
+	}
+
+	public function update($title, $fname, $lname, $gender, $address, $address2, $city, $state, $zip, $textarea, $id){
+		$sql = "UPDATE `task` SET title='$title', first_name='$fname', last_name='$lname', gender='$gender', address='$address', address2='$address2', city='$city', state='$state', zip='$zip', textarea='$textarea' WHERE id=$id";
+		$res = mysqli_query($this->connection, $sql);
+		if($res){
+			return true;
+		}else{
+			return false;
+		}
+	}
+ 
+	public function delete($id){
+		$sql = "DELETE FROM `task` WHERE id=$id";
+ 		$res = mysqli_query($this->connection, $sql);
+ 		if($res){
+ 			return true;
+ 		}else{
+ 			return false;
+ 		}
+	}
+
 	public function sanitize($var){
 		$return = mysqli_real_escape_string($this->connection, $var);
 		return $return;
 	}
- 
 }
  
-$database = new Database();
- 
+	$database = new Database();
 ?>
