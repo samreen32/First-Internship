@@ -128,8 +128,7 @@
                 </div>
                 <div class="form-group">
                     <label for="textarea">About Yourself</label>
-                    <textarea class="form-control" id="textarea" rows="3" name="textarea" 
-                    value="<?php echo $r['textarea'] ?>"></textarea>
+                    <textarea class="form-control" id="textarea" rows="3" name="textarea" placeholder="e.g. Designer"><?php echo $r['textarea'] ?></textarea>
                 </div>
                 <input type="submit" class="btn btn-primary col-md-2 col-md-offset-10" value="Update Application" />
             </form>
