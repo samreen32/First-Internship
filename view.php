@@ -28,7 +28,9 @@
                 <th>State</th>
                 <th>Zip</th>
                 <th>About Yourself</th>
-				<th>Extras</th>
+				<th>Student Course</th>
+				<th>Extra Operations</th>
+			
 			</tr>
 			<?php 
 			    while($r = mysqli_fetch_assoc($res)){
@@ -45,7 +47,11 @@
                 <td><?php echo $r['state']; ?></td>
                 <td><?php echo $r['zip']; ?></td>
                 <td><?php echo $r['textarea']; ?></td>
-				<td><a href="update.php?id=<?php echo $r['id']; ?>">Edit</a> <a href="delete.php?id=<?php echo $r['id']; ?>">Delete</a></td>
+				<td><?php echo $r['stud_course']; ?></td>
+				<td>
+					<a class="btn btn-primary col-md-12" href="update.php?id=<?php echo $r['id']; ?>">Edit</a><br>
+					<a class="btn btn-danger col-md-12 " href="delete.php?id=<?php echo $r['id']; ?>">Delete</a>
+				</td>
 			</tr>
 			<?php } ?>
 		</table>

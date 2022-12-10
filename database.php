@@ -28,12 +28,12 @@ class Database{
 	}
  
 	public function read($id=null){
-		$sql = "SELECT * FROM `task`";
-		if($id){ $sql .= " WHERE id=$id";}
+		$sql = "SELECT t1.*,t2.stud_course FROM task t1 INNER JOIN student_record t2 ON t1.id = t2.task_id";
  		$res = mysqli_query($this->connection, $sql);
  		return $res;
 	}
 
+	
 	public function update($title, $fname, $lname, $gender, $address, $address2, $city, $state, $zip, $textarea, $id){
 		$sql = "UPDATE `task` SET title='$title', first_name='$fname', last_name='$lname', gender='$gender', address='$address', address2='$address2', city='$city', state='$state', zip='$zip', textarea='$textarea' WHERE id=$id";
 		$res = mysqli_query($this->connection, $sql);
